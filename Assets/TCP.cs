@@ -3,6 +3,8 @@ using System.Collections;
 using System;
 using System.IO;
 using System.Net.Sockets;
+using System.Collections.Generic;
+using MovementEffects;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -70,7 +72,7 @@ public class TCP : MonoBehaviour
 			if (tryConnect == false) {
 				tryConnect = true;
 
-				StartCoroutine(connectSocket());
+				Timing.RunCoroutine(connectSocket());
 			}
 		}
 		
@@ -90,7 +92,7 @@ public class TCP : MonoBehaviour
 		{
 			print ("startou client");
 			
-			StartCoroutine(StartClient());
+			Timing.RunCoroutine(StartClient());
 			
 			print(received);
 			if (received != "")
@@ -108,7 +110,7 @@ public class TCP : MonoBehaviour
 	}
 	
 	
-	IEnumerator connectSocket()
+	IEnumerator<float> connectSocket()
 	{
 		//connectThread = new Thread (o => {
 
@@ -140,12 +142,12 @@ public class TCP : MonoBehaviour
 						}
 		//		});
 		//connectThread.Start();
-		yield return new WaitForSeconds (2);
+		yield return Timing.WaitForSeconds (1800);
 		tryConnect = false;
 		
 	}
 	// **********************************************
-	IEnumerator StartClient()
+	IEnumerator<float> StartClient()
 	{
 		//if(teste == false){
 		// Data buffer for incoming data.
@@ -228,9 +230,9 @@ public class TCP : MonoBehaviour
 				});
 				
 				tcpThread.Start();
-				yield return new WaitForSeconds(1f);
+				//yield return new WaitForSeconds(1f);
+				yield return Timing.WaitForSeconds(1.003f);
 				tcpThread.Join();
-				Thread.Sleep(1);
 				receivedServer = false;
 			}
 		}
@@ -238,7 +240,9 @@ public class TCP : MonoBehaviour
 		//}
 	}
 	
-	
+	void tcp(){
+
+	}
 	
 	void OnDestroy()
 	{

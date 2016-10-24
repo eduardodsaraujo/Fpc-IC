@@ -26922,7 +26922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 60000
+  maxHealth: 600
   hitKickBack: 10
   hitKickBackX: 3
   kickMaxY: 15
@@ -46373,7 +46373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9ba5e76a596134aa0be5779ee0331d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Port: 50029
+  Port: 50025
   reloadTime: 2
   numEnemies: 1
   spacing: 0
