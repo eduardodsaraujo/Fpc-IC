@@ -150,6 +150,9 @@ public class GameManager : MonoBehaviour {
 				dateTime = dateTime.AddSeconds (-1);
 				yield return new WaitForSeconds (1);
 				print(dateTime.Second);
+				if(dateTime.Second == 1){
+					spawner.GetComponent<Spawner> ().destroyEnemies = true;
+				}
 				if(gameOver != true)
 					time.GetComponent<Text> ().text = String.Format ("{0:mm:ss}", dateTime);
 			}

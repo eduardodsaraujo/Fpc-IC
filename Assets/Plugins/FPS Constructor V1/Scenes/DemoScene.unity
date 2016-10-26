@@ -50736,6 +50736,7 @@ MonoBehaviour:
   spawnDelay: 1
   newWave: 0
   startNewWave: 0
+  destroyEnemies: 0
   spawnTime: .00999999978
   enemies: []
   inimigosVivos: 0

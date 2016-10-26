@@ -9,6 +9,7 @@ var spawners : Transform[];
 var spawnDelay : float = 0;
 var newWave : boolean = false;
 var startNewWave : boolean;
+var destroyEnemies : boolean;
 
 var spawnTime : float = .2;
 private var spawning : boolean = false;
@@ -50,7 +51,11 @@ function Spawn () {
 		
 					//cs.SpawnCS(spawners[0], waypoints[0], spawnTime, cs.numEnemies);
 
-		while(j < 28){
+		while(j < 30){
+				if(destroyEnemies){
+					destroyEnemies = false;
+					break;
+				}
 				yield new WaitForSeconds (1);
 				j++;
 				print("Enemies :" + EnemyMovement.enemies);
